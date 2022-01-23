@@ -1,13 +1,23 @@
+import datetime
+
 from django.shortcuts import render, get_object_or_404
 
-from .models import Post, Group
+from .models import Post, Group, User
 
 COUNT_ELEMS = 10
 
 
 def index(request):
-    posts = Post.objects.order_by('-pub_date')[:COUNT_ELEMS]
+    author = User.objects.get(username='leo')
+    start_date = datetime.date(1854, 7, 7)
+    end_date = datetime.date(1854, 7, 21)
+    keyword = 'утро'
     template = 'posts/index.html'
+    posts = (Post.objects
+             .filter(text__contains=keyword)
+             .filter(author=author)
+             .filter(pub_date__range=(start_date, end_date))
+             )
     context = {
         'posts': posts
     }
