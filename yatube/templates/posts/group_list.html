@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  <title>Записи сообщества {{ group.title }}</title>
+  Записи сообщества {{ group.title }}
 {% endblock %}
 
 {% block content %}
-  <h1>Лев Толстой – зеркало русской революции.</h1>
-  <p>Группа тайных поклонников графа.</p>
+  <h1>{{ group.title }}</h1>
+  <p>{{ group.description }}</p>
   {% for post in posts %}
     <article>
       <ul>
@@ -20,7 +20,8 @@
       <p>{{ post.text }}</p>
     </article>
     {% if not forloop.last %}
-      <hr>{% endif %}
+      <hr>
+    {% endif %}
   {% endfor %}
 
 {% endblock %}
