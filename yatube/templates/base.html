@@ -23,9 +23,11 @@
   {% include 'includes/header.html' %}
 </header>
 <main>
-  <h1>{% block h1 %}Последние обновления на сайте{% endblock %}</h1>
-  {% block content %}
-  {% endblock %}
+  <div class="container">
+    <h1>{% block h1 %}Последние обновления на сайте{% endblock %}</h1>
+    {% block content %}
+    {% endblock %}
+  </div>
 </main>
 <footer>
   {% include 'includes/footer.html' %}
