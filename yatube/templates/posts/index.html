@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block h1 %}Последние обновления на сайте{% endblock %}
 {% block content %}
-  {% for post in posts %}
+  {% for post in page_obj %}
     <article>
       <ul>
         <li>
@@ -22,5 +22,7 @@
       {% endif %}
     </article>
   {% endfor %}
+
+  {% include 'posts/includes/paginator.html' %}
 
 {% endblock %}
