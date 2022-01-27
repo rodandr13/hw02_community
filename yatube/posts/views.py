@@ -14,7 +14,6 @@ def index(request):
     author = User.objects.get(username='leo')
     start_date = datetime.date(1854, 7, 7)
     end_date = datetime.date(1854, 7, 21)
-    # keyword = 'утро'
     keyword = ''
     template = 'posts/index.html'
     post_list = (Post.objects
